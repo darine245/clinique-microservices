@@ -1,0 +1,33 @@
+{
+  "name": "clinique-microservices",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "patient":"node patient-service/patientService.js",
+    "doctor": "node doctor-service/doctorService.js",
+    "appointment": "node appointment-service/appointmentService.js",
+    "gateway": "node api-gateway/apiGateway.js",
+    "kafka:up": "docker compose up -d",
+    "kafka:down":  "docker compose down"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@apollo/server": "^5.5.1",
+    "@as-integrations/express4": "^1.1.2",
+    "@grpc/grpc-js": "^1.14.3",
+    "@grpc/proto-loader": "^0.8.1",
+    "better-sqlite3": "^12.10.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "graphql": "^16.14.0",
+    "kafkajs": "^2.2.4",
+    "rxdb": "^17.2.0",
+    "rxjs": "^7.8.2",
+    "uuid": "^14.0.0"
+  }
+}

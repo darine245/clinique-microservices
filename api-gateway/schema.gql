@@ -1,0 +1,107 @@
+type Patient {
+  id: String!
+  nom: String!
+  email: String!
+  telephone: String
+  dateNaissance: String
+  createdAt: String
+}
+
+type Doctor {
+  id: String!
+  nom: String!
+  specialite: String!
+  email: String!
+  telephone: String
+  createdAt: String
+}
+
+type Appointment {
+  id: String!
+  patientId: String!
+  doctorId: String!
+  patientNom: String!
+  doctorNom: String!
+  date: String!
+  heure: String!
+  motif: String
+  statut: String!
+  motifAnnulation: String
+  createdAt: String
+}
+
+type Query {
+  # Patients
+  patients: [Patient]
+  patient(id: String!): Patient
+
+  # Médecins
+  doctors: [Doctor]
+  doctor(id: String!): Doctor
+
+  # Rendez-vous
+  appointments: [Appointment]
+  appointment(id: String!): Appointment
+}
+
+type Mutation {
+  # Patients
+  createPatient(
+    nom: String!
+    email: String!
+    telephone: String
+    dateNaissance: String
+  ): Patient
+
+  updatePatient(
+    id: String!
+    nom: String!
+    email: String!
+    telephone: String
+    dateNaissance: String
+  ): Patient
+
+  deletePatient(id: String!): Boolean
+
+  # Médecins
+  createDoctor(
+    nom: String!
+    specialite: String!
+    email: String!
+    telephone: String
+  ): Doctor
+
+  updateDoctor(
+    id: String!
+    nom: String!
+    specialite: String!
+    email: String!
+    telephone: String
+  ): Doctor
+
+  deleteDoctor(id: String!): Boolean
+
+  # Rendez-vous
+  createAppointment(
+    patientId: String!
+    doctorId: String!
+    patientNom: String!
+    doctorNom: String!
+    date: String!
+    heure: String!
+    motif: String
+  ): Appointment
+
+  updateAppointment(
+    id: String!
+    date: String!
+    heure: String!
+    motif: String
+    statut: String!
+  ): Appointment
+
+  deleteAppointment(
+    id: String!
+    motifAnnulation: String
+  ): Boolean
+}

@@ -1,0 +1,67 @@
+syntax = "proto3";
+package appointment;
+
+message Appointment {
+  string id             = 1;
+  string patientId      = 2;
+  string doctorId       = 3;
+  string patientNom     = 4;
+  string doctorNom      = 5;
+  string date           = 6;
+  string heure          = 7;
+  string motif          = 8;
+  string statut         = 9;
+  string createdAt      = 10;
+}
+
+message CreateAppointmentRequest {
+  string patientId  = 1;
+  string doctorId   = 2;
+  string patientNom = 3;
+  string doctorNom  = 4;
+  string date       = 5;
+  string heure      = 6;
+  string motif      = 7;
+}
+message CreateAppointmentResponse {
+  Appointment appointment = 1;
+}
+
+message GetAppointmentRequest {
+  string id = 1;
+}
+message GetAppointmentResponse {
+  Appointment appointment = 1;
+}
+
+message ListAppointmentsRequest {}
+message ListAppointmentsResponse {
+  repeated Appointment appointments = 1;
+}
+
+message UpdateAppointmentRequest {
+  string id     = 1;
+  string date   = 2;
+  string heure  = 3;
+  string motif  = 4;
+  string statut = 5;
+}
+message UpdateAppointmentResponse {
+  Appointment appointment = 1;
+}
+
+message DeleteAppointmentRequest {
+  string id              = 1;
+  string motifAnnulation = 2;
+}
+message DeleteAppointmentResponse {
+  bool success = 1;
+}
+
+service AppointmentService {
+  rpc CreateAppointment(CreateAppointmentRequest) returns (CreateAppointmentResponse);
+  rpc GetAppointment   (GetAppointmentRequest)    returns (GetAppointmentResponse);
+  rpc ListAppointments (ListAppointmentsRequest)  returns (ListAppointmentsResponse);
+  rpc UpdateAppointment(UpdateAppointmentRequest) returns (UpdateAppointmentResponse);
+  rpc DeleteAppointment(DeleteAppointmentRequest) returns (DeleteAppointmentResponse);
+}

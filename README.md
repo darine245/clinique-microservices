@@ -50,14 +50,11 @@ Client → API Gateway (REST + GraphQL)
 
 ## Installation rapide
 
-# 1. Cloner
-git clone https://github.com/darine245/clinique-microservices.git
-cd clinique-microservices
-# 2. Installer
-npm install
-# 3. Démarrer Kafka
+
+
+#  Démarrer Kafka
 docker compose up -d
-# 4. Lancer les services
+#  Lancer les services
 npm run patient
 npm run doctor
 npm run appointment
@@ -66,7 +63,3 @@ npm run gateway
 
 
 
-## Liens
-
-- **Collection Postman** : [LIEN_POSTMAN_ICI]
-- **GitHub** : https://github.com/darine245/clinique-microservices
